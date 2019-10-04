@@ -961,8 +961,8 @@ var _ = Describe("ClusterClient with unavailable Cluster", func() {
 		}
 
 		opt := redisClusterOptions()
-		opt.ReadTimeout = 250 * time.Millisecond
-		opt.WriteTimeout = 250 * time.Millisecond
+		opt.ReadTimeout = 1 * time.Second
+		opt.WriteTimeout = 1 * time.Second
 		opt.MaxRedirects = 1
 		client = cluster.clusterClientUnsafe(opt)
 	})
@@ -1030,8 +1030,8 @@ var _ = Describe("ClusterClient timeout", func() {
 	Context("read/write timeout", func() {
 		BeforeEach(func() {
 			opt := redisClusterOptions()
-			opt.ReadTimeout = 250 * time.Millisecond
-			opt.WriteTimeout = 250 * time.Millisecond
+			opt.ReadTimeout = 1 * time.Second
+			opt.WriteTimeout = 1 * time.Second
 			opt.MaxRedirects = 1
 			client = cluster.clusterClient(opt)
 
